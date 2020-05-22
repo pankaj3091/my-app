@@ -16,10 +16,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    
-     <sonar.tests>
-    <sonar.sources>pom.xml,src/test/java,src/test/resources/features
-    </sonar.sources>
   </properties>
  
    
