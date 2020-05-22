@@ -19,8 +19,9 @@
   </properties>
   
   <properties>
-    <sonar.tests />
-    <sonar.sources>pom.xml,src/test/java,src/test/resources/features</sonar.sources>
+    <sonar.tests>
+    <sonar.sources>pom.xml,src/test/java,src/test/resources/features
+    </sonar.sources>
 </properties>
   
 
