@@ -27,7 +27,7 @@ pipeline {
 			archive 'target/*.jar'
 			}
 		}
-        stage('Upload War To Nexus'){
+       /* stage('Upload War To Nexus'){
             steps{
                 nexusArtifactUploader artifacts: [
 				[
@@ -45,6 +45,6 @@ pipeline {
 					repository: 'http://localhost:8081/repository/Sample/', 
 					version: '1.0.0'
             }
-        }
+        } */
     }
 }
