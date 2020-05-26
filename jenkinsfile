@@ -15,11 +15,6 @@ pipeline {
                 bat 'mvn clean package'
                 }
         }
-	stage("Email Build Status"){
-		steps {
-			mail bcc: '', body: 'Sample body', cc: '', from: '', replyTo: '', subject: 'Declarative-Pipeline Project', to: 'pankaj.jalalpure@gmail.com'
-		}
-	}
 	stage("Consolidate Results") {
 		steps {
 			input ("Do you want to capture results?")
@@ -27,6 +22,11 @@ pipeline {
 			archiveArtifacts  'target/*.jar'
 			}
 		}
+	stage("Email Build Status"){
+		steps {
+			mail bcc: '', body: 'Sample body', cc: '', from: '', replyTo: '', subject: 'Declarative-Pipeline Project', to: 'pankaj.jalalpure@gmail.com'
+		}
+	}
        /* stage('Upload War To Nexus'){
             steps{
                 nexusArtifactUploader artifacts: [
