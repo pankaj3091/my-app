@@ -1,25 +1,42 @@
-def workspace;
-
-node{
-    stage('Checkout')
-    {
-        echo "checking out the code"
+pipeline {
+    agent any
+    tools{
+        maven 'maven'
     }
-    stage('Static Code Analysis')
-    {
-        echo "static code analysis"
+    stages{
+        stage('Code checkout'){
+            steps{
+                git credentialsId: 'git_credential', url: 'https://github.com/pankaj3091/my-app.git'
+            }
+        }
+        stage('Compile-package'){
+            steps{
+                // Get maven home path
+                bat 'mvn clean package'
+                }
+        }
+        stage(){
+        steps{
+                
+        }
+        stage('Upload War To Nexus'){
+            steps{
+                nexusArtifactUploader artifacts: [
+				[
+					artifactId: 'simple-app', 
+					classifier: '', 
+					file: 'target/my-app-1.0-SNAPSHOT.jar', 
+					type: 'war'
+					]
+				], 
+					credentialsId: 'nexus_id', 
+					groupId: 'in.javahome', 
+					nexusUrl: 'http://localhost:8081/', 
+					nexusVersion: 'nexus2', 
+					protocol: 'http', 
+					repository: 'http://localhost:8081/repository/Sample/', 
+					version: '1.0.0'
+            }
+        }
     }
-    stage('Build')
-    {
-        echo "build the code"
-    }
-    stage('Unit testing')
-    {
-        echo "unit testing"
-    }
-    stage('Delivery')
-    {
-        echo "Delivery the code"
-    }
-    
 }
