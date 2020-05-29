@@ -12,7 +12,7 @@ pipeline {
         stage('Compile-package'){
             steps{
                 // Get maven home path
-                bat 'mvn clean package'
+                bat 'mvn clean package deploy'
                 }
         }
 	stage("Consolidate Results") {
@@ -39,10 +39,10 @@ pipeline {
 				], 
 					credentialsId: 'nexus_id', 
 					groupId: 'com.mycompany.app', 
-					nexusUrl: 'http://localhost:8081/', 
+					nexusUrl: 'localhost:8081', 
 					nexusVersion: 'nexus3', 
 					protocol: 'http', 
-					repository: 'http://localhost:8081/repository/SAMPLE-SNAP', 
+					repository: 'http://localhost:8081/repository/SAMPLE-SNAP/', 
 					version: '1.0-SNAPSHOT'
             }
         } 
