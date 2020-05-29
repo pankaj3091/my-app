@@ -22,12 +22,16 @@ pipeline {
 	}
         stage('Upload War To Nexus'){
             steps{
+	    script{
+	    	def mavenPom= readMavenPom file: 'pom.xml'
+		def nexusReponame= mavenPom.version.endsWith("SNAPSHOT") ? "SIMPLE-SNAP" : "SIMPLE-REL" 
+		
                 nexusArtifactUploader artifacts: [
 				[
 					artifactId: 'my-app', 
 					classifier: '', 
-					file: 'target/my-app-1.0-SNAPSHOT.jar', 
-					type: 'jar'
+					file: 'target/my-app-${mavenPom.version}T.jar', 
+					type: 'war'
 					]
 				], 
 					credentialsId: 'nexus_id', 
@@ -35,8 +39,8 @@ pipeline {
 					nexusUrl: 'localhost:8081', 
 					nexusVersion: 'nexus3', 
 					protocol: 'http', 
-					repository: 'http://localhost:8081/repository/SAMPLE-SNAP/', 
-					version: '1.0-SNAPSHOT'
+					repository: 'nexusReponame', 
+					version: "${mavenPom.version}"
             }
         } 
     }
