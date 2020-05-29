@@ -12,7 +12,7 @@ pipeline {
         stage('Compile-package'){
             steps{
                 // Get maven home path
-                bat 'mvn clean package deploy'
+                bat 'mvn clean package'
                 }
         }
 	stage("Consolidate Results") {
