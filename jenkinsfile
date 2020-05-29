@@ -31,19 +31,19 @@ pipeline {
             steps{
                 nexusArtifactUploader artifacts: [
 				[
-					artifactId: 'simple-app', 
+					artifactId: 'my-app', 
 					classifier: '', 
 					file: 'target/my-app-1.0-SNAPSHOT.jar', 
 					type: 'war'
 					]
 				], 
 					credentialsId: 'nexus_id', 
-					groupId: 'in.javahome', 
+					groupId: 'com.mycompany.app', 
 					nexusUrl: 'http://localhost:8081/', 
 					nexusVersion: 'nexus2', 
 					protocol: 'http', 
 					repository: 'http://localhost:8081/repository/SAMPLE-SNAP/', 
-					version: '1.0.0'
+					version: '1.0-SNAPSHOT'
             }
         } */
     }
