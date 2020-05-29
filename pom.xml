@@ -93,7 +93,7 @@
         <fork>true</fork>  <!-- not sure if this is also needed -->
         <executable>C:\Program Files\Java\jdk1.8.0_181\bin\javac</executable>
     </configuration>
-</plugin>
+ </plugin>
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
@@ -101,22 +101,6 @@
             
         </plugins>
       
-   <!--    <distributionManagement>
-		
-    <repository>
-      	<id>nexus</id>
-      	<name>Nexus Releases</name>
-      	<url>http://localhost:8081/repository/SAMPLE-REL/</url>
-    </repository>
-		
-    <snapshotRepository>
-     	 <id>nexus</id>
-      	<name>Nexus Snapshot</name>
-      	<!--<url>http://localhost:8081/#browse/browse:maven-snapshots</url>-->
- <!-- 	    <url>http:http://localhost:8081/repository/SAMPLE-SNAP/</url>
-    </snapshotRepository>   -->
-		
- <!-- </distributionManagement>  -->
       
     </pluginManagement>
   </build>
