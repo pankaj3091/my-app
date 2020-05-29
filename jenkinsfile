@@ -27,14 +27,14 @@ pipeline {
 			mail bcc: '', body: 'Sample body', cc: '', from: '', replyTo: '', subject: 'Declarative-Pipeline Project', to: 'pankaj.jalalpure@gmail.com'
 		}
 	}
-       /* stage('Upload War To Nexus'){
+        stage('Upload War To Nexus'){
             steps{
                 nexusArtifactUploader artifacts: [
 				[
 					artifactId: 'my-app', 
 					classifier: '', 
 					file: 'target/my-app-1.0-SNAPSHOT.jar', 
-					type: 'war'
+					type: 'jar'
 					]
 				], 
 					credentialsId: 'nexus_id', 
@@ -45,6 +45,6 @@ pipeline {
 					repository: 'http://localhost:8081/repository/SAMPLE-SNAP/', 
 					version: '1.0-SNAPSHOT'
             }
-        } */
+        } 
     }
 }
