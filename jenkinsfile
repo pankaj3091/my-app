@@ -41,6 +41,7 @@ pipeline {
 					protocol: 'http', 
 					repository: 'nexusReponame', 
 					version: "${mavenPom.version}"
+		}
             }
         } 
     }
